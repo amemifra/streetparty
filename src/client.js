@@ -1,4 +1,4 @@
-import * as sapper from 'src/node_modules/@sapper/app';
+import * as sapper from '@sapper/app';
 import { createProxyClient } from 'ipfs-postmsg-proxy';
 
 const swName = 'ipfs-worker.js'
