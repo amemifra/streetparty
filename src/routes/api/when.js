@@ -1,4 +1,4 @@
-const rightNow = Date.now() + 6000
+const rightNow = 1570901234864
 
 
 export function get(req, res, next) {
@@ -9,15 +9,4 @@ export function get(req, res, next) {
 		});
 
 		res.end(rightNow.toString())
-}
-
-
-export function post(req, res, next) {
-	console.log({req})
-	
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	});
-
-	res.end(JSON.stringify(true))
 }
