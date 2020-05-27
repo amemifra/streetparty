@@ -2,14 +2,7 @@
     import { onMount } from 'svelte'
     let audio
     let paused = true
-    let src = 'PAZZESKA.mp3';
-    // fetch('PAZZESKA.mp3').then(res => res.body).then(sr => {
-    //     src = sr
-    // });
-    //     const ctx = new AudioContext
-    //     let destination = ctx.createMediaStreamDestination()
-    //     ctx.decodeAudioData('')
-    //     ctx.createMediaElementSource(audio)
+    let src = '100 ROSE.m4a';
     onMount(async () => {
         const ctx = new AudioContext(audio)
         const source = ctx.createBufferSource()
@@ -28,8 +21,28 @@
         // audio.autoplay = true
         // audio.play()
     })
+
+    function playWhen() {
+        fetch('/api/when').then(r => r.text()).then(when => {
+            const now = Date.now()
+            const sec = ~~(now - when / 10) / 100
+            if (now > when) {
+                src = src + `#t=${sec}`
+                console.log('past', sec)
+                paused = false;
+            } else {
+                setTimeout(() => { console.log('future'); paused = false }, (when - now))
+            }
+            const newTime = Date.now + 8000
+            // fetch(`/api/when/${newTime}`).then(r => r.text()).then(r => console.log(r))
+        })
+    } 
 </script>
 
 <h1>Player</h1>
 
+<<<<<<< HEAD
 <audio {src} bind:this={audio}></audio>
+=======
+<audio {src} bind:this={audio} bind:paused on:canplaythrough={playWhen()}></audio>
+>>>>>>> d612ad2e2f796bce4c3e867194bc841c74fa4cab
