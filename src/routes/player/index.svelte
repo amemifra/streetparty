@@ -21,7 +21,7 @@
         const when = await whenRes.json()
         const now = Date.now()
         const delay = when - now
-        console.log({when, now, delay, 1: delay > 0 ? delay : 0, 2: delay > 0 ? 0 : -delay})
+        console.log({when, now, delay, 1: delay > 0 ? delay / 1000 : 0, 2: delay > 0 ? 0 : -(delay / 1000)})
         
         source.start(delay > 0 ? delay / 1000 : 0, delay > 0 ? 0 : -(delay / 1000))
         
