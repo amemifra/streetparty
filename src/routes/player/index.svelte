@@ -41,8 +41,4 @@
 
 <h1>Player</h1>
 
-<<<<<<< HEAD
 <audio {src} bind:this={audio}></audio>
-=======
-<audio {src} bind:this={audio} bind:paused on:canplaythrough={playWhen()}></audio>
->>>>>>> d612ad2e2f796bce4c3e867194bc841c74fa4cab
