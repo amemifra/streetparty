@@ -1,5 +1,5 @@
 const date = new Date()
-date.setHours(19, 49)
+date.setHours(21, 15)
 
 export function get(req, res, next) {
     res.writeHead(200, {
